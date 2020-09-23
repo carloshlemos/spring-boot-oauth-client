@@ -1,0 +1,23 @@
+server:
+  port: 8443
+  ssl:
+    key-store: server.p12
+    key-store-password: Secr3t
+    key-store-type: pkcs12
+    key-store-alias: https
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          wso2:
+            client-name: Login with the Curity Identity Server
+            client-id: RVHiJhY6ux2s77lTf14VKrsUd3oa
+            client-secret: X0cLbAG4Q3ftz9HbGUYQ7O_MKx0a
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope: openid, profile
+        provider:
+          wso2:
+            issuer-uri: https://localhost:9443/oauth2/token
